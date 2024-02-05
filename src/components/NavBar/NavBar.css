@@ -1,0 +1,23 @@
+/* NavBar.css */
+.nav-button{
+    color: black;
+    margin: 2%;
+
+}
+.nav-button:hover {
+    color: navy;
+    border: 1px solid navy;
+    border-radius: 5%; /* Change to the shade of blue you want */
+    /* Add !important if the hover effect is not applying due to Material-UI's default styles */
+  }
+  
+  /* You can also use inline styles or makeStyles hook from Material-UI if you prefer */
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+  }
+/* NavBar.css */
+
+    
