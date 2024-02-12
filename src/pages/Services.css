@@ -2,6 +2,7 @@
   text-align: center;
   background-color: #f0f4f8;
   padding: 40px;
+  margin-bottom: 5%;
 }
 
 .services-list {
@@ -21,13 +22,14 @@
 
 .service-card:hover {
   transform: translateY(-5px);
+  background-color:#E1F4FF;
 }
 
 .icon-wrapper {
   display: flex; /* Center the icon using flexbox */
   align-items: center; /* Center the icon vertically */
   justify-content: center; /* Center the icon horizontally */
-  border: 2px solid #007bff; /* Blue border around the icon */
+  border: 2px solid #1B86C8; /* Blue border around the icon */
   border-radius: 50%; /* Makes the border rounded */
   width: 50px; /* Fixed width */
   height: 50px; /* Fixed height */
@@ -36,7 +38,7 @@
 
 /* Directly style the SVG of the Material-UI icon */
 .service-card .icon-wrapper svg {
-  color: #007bff; /* Blue color for the icon */
+  color: #1B86C8; /* Blue color for the icon */
   width: 24px; /* Size of the icon */
   height: 24px; /* Size of the icon */
 }
@@ -57,3 +59,4 @@
   color: #007bff;
   font-weight: bold;
 }
+
