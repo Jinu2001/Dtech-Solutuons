@@ -1,12 +1,17 @@
 import React from 'react';
 import './Services.css';
+import DevicesOtherIcon from '@mui/icons-material/DevicesOtherTwoTone';
+import DisplaySettingsTwoToneIcon from '@mui/icons-material/DisplaySettingsTwoTone';
+import QueryStatsTwoToneIcon from '@mui/icons-material/QueryStatsTwoTone';
+
+
 
 const ServiceCard = ({ icon, title, description }) => (
   <div className="service-card">
     <div className="icon-wrapper">
       {icon}
     </div>
-    <h3>{title}</h3>
+    <h4>{title}</h4>
     <p>{description}</p>
     <a href="/learn-more">Learn More {'>'}</a>
   </div>
@@ -15,24 +20,25 @@ const ServiceCard = ({ icon, title, description }) => (
 const Services = () => {
   return (
     <div className="services-section">
-      <h2>Fostering a playful & engaging learning environment</h2>
+      <h2 sx={{mb:10}}>Fostering a playful & engaging learning environment</h2> 
       <div className="services-list">
         <ServiceCard
-          icon={<i className="fa fa-desktop" aria-hidden="true"></i>}
+          icon={<DevicesOtherIcon/>}
           title="User Experience"
           description="Lessons on design that cover the most recent developments."
         />
         <ServiceCard
-          icon={<i className="fa fa-code" aria-hidden="true"></i>}
+          icon={<DisplaySettingsTwoToneIcon/>}
           title="Web Development"
           description="Classes in development that cover the most recent advancements in web."
         />
         <ServiceCard
-          icon={<i className="fa fa-bullhorn" aria-hidden="true"></i>}
+          icon={<QueryStatsTwoToneIcon/>}
           title="Marketing"
           description="Marketing courses that cover the most recent marketing trends."
         />
       </div>
+      <CarouselIndicator total={totalItems} current={currentItem} />
     </div>
   );
 };

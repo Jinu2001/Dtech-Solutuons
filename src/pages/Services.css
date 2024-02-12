@@ -1,49 +1,59 @@
 .services-section {
-    text-align: center;
-    background-color: #f0f4f8;
-    padding: 40px;
-  }
-  
-  .services-list {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-  }
-  
-  .service-card {
-    width: 280px;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-  }
-  
-  .service-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .icon-wrapper {
-    font-size: 48px;
-    margin-bottom: 20px;
-  }
-  
-  .service-card h3 {
-    margin-bottom: 15px;
-    color: #123456;
-  }
-  
-  .service-card p {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 20px;
-  }
-  
-  .service-card a {
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-  }
-  
-  /* Icons in the demo are from Font Awesome, include the library in your project */
-  
+  text-align: center;
+  background-color: #f0f4f8;
+  padding: 40px;
+}
+
+.services-list {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.service-card {
+  width: 280px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.icon-wrapper {
+  display: flex; /* Center the icon using flexbox */
+  align-items: center; /* Center the icon vertically */
+  justify-content: center; /* Center the icon horizontally */
+  border: 2px solid #007bff; /* Blue border around the icon */
+  border-radius: 50%; /* Makes the border rounded */
+  width: 50px; /* Fixed width */
+  height: 50px; /* Fixed height */
+  margin: 0 auto 20px; /* Center align and add space below */
+}
+
+/* Directly style the SVG of the Material-UI icon */
+.service-card .icon-wrapper svg {
+  color: #007bff; /* Blue color for the icon */
+  width: 24px; /* Size of the icon */
+  height: 24px; /* Size of the icon */
+}
+
+.service-card h3 {
+  margin-bottom: 15px;
+  color: #123456;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.service-card a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}

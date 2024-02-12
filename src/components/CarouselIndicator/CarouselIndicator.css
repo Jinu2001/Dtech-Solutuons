@@ -1,0 +1,20 @@
+.carousel-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .dot {
+    height: 8px;
+    width: 8px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dot.active {
+    background-color: #007bff; /* Active dot color */
+  }
+  
