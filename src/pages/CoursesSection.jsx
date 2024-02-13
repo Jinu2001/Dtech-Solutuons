@@ -6,14 +6,14 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 const courses = [
   {
     id: 1,
-    title: 'UI UX Design..',
+    title: 'Web Designing',
     description: 'Use Figma to get a job in UI Design, User Interface, User Experience design.',
     duration: '08 hr 12 mins',
     rating: 4.3,
     totalRatings: 16325,
     enrolled: 2001,
     price: 'LKR 4000',
-    imageUrl: 'path-to-design-course-image.jpg', // Replace with path to your image
+    imageUrl: './images/web.jpg', // Replace with path to your image
   },
   {
     id: 2,
@@ -24,24 +24,35 @@ const courses = [
     totalRatings: 832,
     enrolled: 2500,
     price: 'LKR 4000',
-    imageUrl: 'path-to-python-course-image.jpg', // Replace with path to your image
+    imageUrl: './images/python.png', // Replace with path to your image
   },
   {
     id: 3,
-    title: 'Course Name',
-    description: 'Brief description of the third course.',
+    title: 'Robotics',
+    description: 'Use Figma to get a job in UI Design, User Interface, User Experience design.',
+    duration: '01 hr 2 mins',
+    rating: 4.0,
+    totalRatings: 125,
+    enrolled: 800,
+    price: 'LKR 4000',
+    imageUrl: './images/robotics.jpg', // Replace with path to your image
+  },
+  {
+    id: 3,
+    title: 'Graphic Designing',
+    description: 'Use Figma to get a job in UI Design, User Interface, User Experience design.',
     duration: '01 hr 2 mins',
     rating: 4.0,
     totalRatings: 125,
     enrolled: 800,
     price: 'Price',
-    imageUrl: 'path-to-third-course-image.jpg', // Replace with path to your image
+    imageUrl: './images/graphic.jpg', // Replace with path to your image
   },
 ];
 
 const CourseCard = ({ course }) => {
   return (
-    <Grid item xs={12} sm={6} md={4}>
+    <Grid item xs={12} sm={6} md={3}>
       <Card>
         <CardMedia
           component="img"
