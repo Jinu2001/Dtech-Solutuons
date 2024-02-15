@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import DotNavigation from '../components/DotNavigation/DotNavigation';
 import ServiceCard from '../components/ServiceCard/ServiceCard';
-import 
+import './Services.css';
 import DevicesOtherIcon from '@mui/icons-material/DevicesOtherTwoTone';
 import DisplaySettingsTwoToneIcon from '@mui/icons-material/DisplaySettingsTwoTone';
 import QueryStatsTwoToneIcon from '@mui/icons-material/QueryStatsTwoTone';
