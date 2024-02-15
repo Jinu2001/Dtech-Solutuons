@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Card, CardContent, Typography, CardMedia, Rating } from '@mui/material';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
-// Dummy data for courses
+
 const courses = [
   {
     id: 1,
@@ -13,7 +13,7 @@ const courses = [
     totalRatings: 16325,
     enrolled: 2001,
     price: 'LKR 4000',
-    imageUrl: './images/web.jpg', // Replace with path to your image
+    imageUrl: './images/web.jpg', 
   },
   {
     id: 2,

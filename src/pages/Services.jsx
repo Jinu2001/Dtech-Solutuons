@@ -1,51 +1,11 @@
+// Services.js
 import React, { useState } from 'react';
-import './Services.css';
+import DotNavigation from '../components/DotNavigation/DotNavigation';
+import ServiceCard from '../components/ServiceCard/ServiceCard';
+import 
 import DevicesOtherIcon from '@mui/icons-material/DevicesOtherTwoTone';
 import DisplaySettingsTwoToneIcon from '@mui/icons-material/DisplaySettingsTwoTone';
 import QueryStatsTwoToneIcon from '@mui/icons-material/QueryStatsTwoTone';
-
-class DotNavigation extends React.Component {
-  render() {
-    const dotStyle = {
-      height: '15px',
-      width: '15px',
-      borderRadius: '50%',
-      backgroundColor: '#bbb',
-      display: 'inline-block',
-      margin: '0 5px',
-      cursor: 'pointer',
-      transition: 'background-color 0.3s ease',
-    };
-
-    // Updated activeDotStyle to turn the dot into a line
-    const activeDotStyle = {
-      ...dotStyle,
-      width: '30px', // Increase width to make it appear as a line
-      borderRadius: '7px', // Reduce border-radius to remove the rounded edges
-      backgroundColor: '#1B86C8', // Keep the active color
-    };
-
-    return (
-      <div style={{ textAlign: 'center' }}>
-        {Array.from({ length: this.props.total }, (_, i) => (
-          <span
-            key={i}
-            style={this.props.current === i ? activeDotStyle : dotStyle}
-            onClick={() => this.props.onDotClick(i)}
-          />
-        ))}
-      </div>
-    );
-  }
-}
-const ServiceCard = ({ icon, title, description, onClick }) => (
-  <div className="service-card" onClick={onClick}>
-    <div className="icon-wrapper">{icon}</div>
-    <h4>{title}</h4>
-    <p>{description}</p>
-    <a href="/learn-more" onClick={(e) => e.stopPropagation()}>Learn More {'>'}</a>
-  </div>
-);
 
 const Services = () => {
   const [currentDot, setCurrentDot] = useState(0);
@@ -79,7 +39,6 @@ const Services = () => {
       </div><br></br><br></br>
       <DotNavigation total={3} current={currentDot} onDotClick={handleCardClick} />
     </div>
-    
   );
 };
 
