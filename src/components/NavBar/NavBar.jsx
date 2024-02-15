@@ -18,30 +18,19 @@ const NavBar = () => {
         <Typography style = {{fontWeight : 'bold', fontSize : '25px'}} component="div" className="logo-text" sx={{ flexGrow: 1 }}>
           DTEC
         </Typography>
-
-        {/* Search box
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <div className="search-icon">
-            <SearchIcon />
-          </div>
-          <InputBase  
-            placeholder="Search..."
-            className="search-input"
-            inputProps={{ 'aria-label': 'search' }}
-          />
-        </div> */}
         
+      
         {!isMobile && (
           <>
-            <div style={{ marginLeft: 'auto' }}>
+            <div>
               <Button className="nav-button" href="/">Home</Button>
               <Button className="nav-button" href="/about">About</Button>
               <Button className="nav-button" href="/services">Services</Button>
               <Button className="nav-button" href="/courses">Courses</Button>
             </div>
             <div style={{ flexGrow: 0, marginRight: '5%'}}></div>
-            <Button className="nav-button-register" href="/register" style={{fontWeight:'700', marginRight: '15px', color:'black'}}>Sign in</Button>
-            <Button className="nav-button-register" href="/register" style={{fontFamily:'sans-serif',fontWeight:'700', border: 'solid 2px #F4EBFF',borderRadius: '8px',color:'white', backgroundColor: '#1A87C9', height: '40px', padding:'20px'}}>Register for Free</Button>
+            <Button className="nav-button" href="/register" style={{fontWeight:'700', marginRight: '15px', color:'black'}}>Sign in</Button>
+            <Button className="nav-button-registerr" href="/register" style={{fontFamily:'sans-serif',fontWeight:'700', border: 'solid 2px #F4EBFF',borderRadius: '8px',color:'white', backgroundColor: '#1A87C9', height: '40px', padding:'20px'}}>Register for Free</Button>
           </>
         )}
         {isMobile && (
