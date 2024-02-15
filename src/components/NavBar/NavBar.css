@@ -19,13 +19,19 @@ img{
 }
 
 .nav-button {
-  font-weight:600  !important;
+  font-weight:400   !important;
   color: black !important;
-  padding-right: 25px !important;  /* Overrides all other rules for button color */
+  padding-right: 15px !important;  /* Overrides all other rules for button color */
 }
 
 .nav-button:hover {
   color: #F7AD1D !important;
   background-color: rgb(255, 255, 255) !important;
+}
+
+.nav-button-register:hover{
+  color: #F7AD1D !important;
+  /* font-weight: 100px !important; */
+  /*background-color: rgb(255, 255, 255)!important;*/
 }
 
