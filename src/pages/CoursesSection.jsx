@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState} from 'react';
 import { Grid, Card, CardContent, Typography, CardMedia, Rating } from '@mui/material';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-
+import DotNavigation from '../components/DotNavigation/DotNavigation';
+ 
 
 const courses = [
   {
@@ -50,7 +51,7 @@ const courses = [
   },
 ];
 
-const CourseCard = ({ course }) => {
+const CourseCard = ({ course }) => {   // can replace this with the ServiceCard Reusable component
   return (
     <Grid item xs={12} sm={6} md={3}>
       <Card>
@@ -92,6 +93,13 @@ const CourseCard = ({ course }) => {
 };
 
 const CoursesSection = () => {
+  const [activeDot, setActiveDot] = useState(0);
+
+  const handleDotClick = (index) => {
+    // setting which dot is active
+    setActiveDot(index);
+ 
+   };
   return (
     <div style={{ padding: '20px', backgroundColor: '#f0f4f8' }}>
       <Typography variant="h6" style={{ marginBottom: '16px' }}>
@@ -108,6 +116,7 @@ const CoursesSection = () => {
           <CourseCard key={course.id} course={course} />
         ))}
       </Grid>
+      <DotNavigation total={3} current={activeDot} onDotClick={handleDotClick} />
     </div>
   );
 };
