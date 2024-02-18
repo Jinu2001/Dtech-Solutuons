@@ -1,65 +1,37 @@
-/* NavBar.css */
 
 
-.nav-button{
-    color: black;
-    margin: 2%;
-    padding-right: 50px;
+img{
+  width: 50px;
+  height: 70px;
+  margin-left: 45px;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.logo-text {
+  color: #000000;
+}
+
+.logo-text::first-letter {
+  color: #F7AD1D;
+  font-weight: 800;
+  /* font-size: larger; */
+}
+
+.nav-button {
+  font-weight:400   !important;
+  color: black !important;
+  padding-right: 15px !important;  /* Overrides all other rules for button color */
 }
 
 .nav-button:hover {
-    color: navy;
-    /* border: 1px solid navy;
-    border-radius: 5%; Change to the shade of blue you want */
-    /* Add !important if the hover effect is not applying due to Material-UI's default styles */
-  }
-
-  
-  
-  /* You can also use inline styles or makeStyles hook from Material-UI if you prefer */
-  html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden; /* Prevent horizontal scroll */
-  }
-
-  img{
-    width: 50px;
-    height: 70px;
-    margin-left: 45px;
-    margin-right: 10px;
-    margin-top: 5px;
-  }
-
-  .logo-text {
-    color: #000000;
-  }
-
-  .logo-text::first-letter {
-    color: #F7AD1D;
-    font-weight: 800s;
-    /* font-size: larger; */
-  }
-/* NavBar.css */
-
-/* NavBar.css */
-
-.search-icon {
-  margin-right: 8px;
+  color: #F7AD1D !important;
+  background-color: rgb(255, 255, 255) !important;
 }
 
-.search-input {
-  color: inherit;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #fff;
-  transition: background-color 0.3s ease;
+.nav-button-register:hover{
+  color: #F7AD1D !important;
+  /* font-weight: 100px !important; */
+  /*background-color: rgb(255, 255, 255)!important;*/
 }
 
-.search-input:hover {
-  background-color: #f0f0f0;
-}
-
-    
