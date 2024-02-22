@@ -101,7 +101,7 @@ const CoursesSection = () => {
   };
 
   return (
-    <div style={{ padding: '20px', backgroundColor: '#f0f4f8' }}>
+    <div style={{ padding: '20px', backgroundColor: '#f0f4f8', marginBottom:'2%'}}>
       <Typography variant="h6" style={{ marginBottom: '16px' }}>
         Explore Programs
       </Typography>
@@ -111,14 +111,14 @@ const CoursesSection = () => {
       <Typography variant="body1" style={{ marginBottom: '20px' }}>
         Let's join our famous class, the knowledge provided will definitely be useful for you.
       </Typography>
-      <Grid container spacing={2} sx={{mb:2}} >
+      <Grid container spacing={2} sx={{m:2}} >
         {courses.map(course => (
           <CourseCard key={course.id} course={course} onClick={handleCourseClick} />
         ))}
       </Grid>
       <DotNavigation total={4} current={activeDot} onDotClick={setActiveDot} />
     </div>
-  );
+    );
 };
 
 export default CoursesSection;
