@@ -1,36 +1,60 @@
-// NavBar.js
-
 import React from 'react';
-import { AppBar, Toolbar, Typography, Button, IconButton, useMediaQuery, useTheme } from '@mui/material';
+import { AppBar, Toolbar, Typography, useMediaQuery, useTheme, Box, IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import './NavBar.css'; 
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
+  const pages = [
+    { title: 'Home', path: '/' },
+    { title: 'About', path: '/about' },
+    { title: 'Services', path: '/services' },
+    { title: 'Courses', path: '/courses' },
+    { title: 'Register', path: '/register' },
+  ];
 
   return (
-    <AppBar position="static" style={{ background: 'white', color: 'black', padding: 0 }}>
-      <Toolbar style={{ justifyContent: 'space-between', width: '100%', margin: 0 }}>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+    <AppBar position="static" elevation={0} sx={{ background: 'white', color: theme.palette.primary.main }}>
+      <Toolbar sx={{ justifyContent: 'space-between' }}>
+        <Typography variant="h6" color="inherit" sx={{ cursor: 'pointer', userSelect: 'none', flexGrow: 1 }}>
           DTEC
         </Typography>
-        {!isMobile && (
-          <>
-            <div style={{ marginLeft: 'auto' }}>
-              <Button className="nav-button" href="/">Home</Button>
-              <Button className="nav-button" href="/about">About</Button>
-              <Button className="nav-button" href="/services">Services</Button>
-              <Button className="nav-button" href="/courses">Courses</Button>
-            </div>
-            <div style={{ flexGrow: 0, marginRight: '3%' }}></div>
-            <Button className="nav-button" href="/register">Register</Button>
-          </>
-        )}
-        {isMobile && (
-          <IconButton color="inherit" style={{ marginLeft: 'auto' }}>
+        {isMobile ? (
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ ml: 'auto' }}
+          >
             <MenuIcon />
           </IconButton>
+        ) : (
+          <Box sx={{ display: 'flex', alignItems: 'center', ml: 'auto' }}>
+            {pages.map((page) => (
+              <Link
+                key={page.title}
+                to={page.path}
+                style={{
+                  textDecoration: 'none',
+                  color: theme.palette.primary.main,
+                  margin: '0 8px',
+                }}
+                sx={{
+                  padding: '8px 16px',
+                  borderRadius: '4px',
+                  '&:hover': {
+                    backgroundColor: theme.palette.primary.light,
+                    color: 'white',
+                  },
+                }}
+              >
+                {page.title}
+              </Link>
+            ))}
+          </Box>
         )}
       </Toolbar>
     </AppBar>

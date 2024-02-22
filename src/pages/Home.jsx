@@ -14,13 +14,14 @@ const Home = () => {
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     height: '100vh', // This will make the div take the full height of the viewport
-    width: '100vw' // This will make the div take the full width of the viewport
+    width: '100%' // This will make the div take the full width of the viewport
   };
+  
 
   return (
     <>
       <CssBaseline />
-      <NavBar />
+      
       <Box style={backgroundStyle}>
         {/* Add other components like Header, CourseCategories, etc. */}
         <Header></Header>
