@@ -2,7 +2,7 @@ import React, { useState} from 'react';
 import { Grid, Card, CardContent, Typography, CardMedia, Rating } from '@mui/material';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import DotNavigation from '../components/DotNavigation/DotNavigation';
- 
+
 
 const courses = [
   {
@@ -14,7 +14,7 @@ const courses = [
     totalRatings: 16325,
     enrolled: 2001,
     price: 'LKR 4000',
-    imageUrl: './images/web.jpg', 
+    imageUrl: './images/web.jpg',
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const courses = [
     totalRatings: 832,
     enrolled: 2500,
     price: 'LKR 4000',
-    imageUrl: './images/python.png', // Replace with path to your image
+    imageUrl: './images/python.png',
   },
   {
     id: 3,
@@ -36,10 +36,10 @@ const courses = [
     totalRatings: 125,
     enrolled: 800,
     price: 'LKR 4000',
-    imageUrl: './images/robotics.jpg', // Replace with path to your image
+    imageUrl: './images/robotics.jpg',
   },
   {
-    id: 3,
+    id: 4, // Fixed ID to be unique
     title: 'Graphic Designing',
     description: 'Use Figma to get a job in UI Design, User Interface, User Experience design.',
     duration: '01 hr 2 mins',
@@ -47,13 +47,13 @@ const courses = [
     totalRatings: 125,
     enrolled: 800,
     price: 'Price',
-    imageUrl: './images/graphic.jpg', // Replace with path to your image
+    imageUrl: './images/graphic.jpg',
   },
 ];
 
-const CourseCard = ({ course }) => {   // can replace this with the ServiceCard Reusable component
+const CourseCard = ({ course, onClick }) => { // Added onClick prop
   return (
-    <Grid item xs={12} sm={6} md={3}>
+    <Grid item xs={12} sm={6} md={3} onClick={() => onClick(course.id)}>
       <Card>
         <CardMedia
           component="img"
@@ -95,11 +95,11 @@ const CourseCard = ({ course }) => {   // can replace this with the ServiceCard 
 const CoursesSection = () => {
   const [activeDot, setActiveDot] = useState(0);
 
-  const handleDotClick = (index) => {
-    // setting which dot is active
-    setActiveDot(index);
- 
-   };
+  const handleCourseClick = (courseId) => {
+    const dotIndex = (courseId - 1) % 4; // Adjusted logic to account for IDs starting from 1
+    setActiveDot(dotIndex);
+  };
+
   return (
     <div style={{ padding: '20px', backgroundColor: '#f0f4f8' }}>
       <Typography variant="h6" style={{ marginBottom: '16px' }}>
@@ -111,12 +111,12 @@ const CoursesSection = () => {
       <Typography variant="body1" style={{ marginBottom: '20px' }}>
         Let's join our famous class, the knowledge provided will definitely be useful for you.
       </Typography>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} sx={{mb:2}} >
         {courses.map(course => (
-          <CourseCard key={course.id} course={course} />
+          <CourseCard key={course.id} course={course} onClick={handleCourseClick} />
         ))}
       </Grid>
-      <DotNavigation total={3} current={activeDot} onDotClick={handleDotClick} />
+      <DotNavigation total={4} current={activeDot} onDotClick={setActiveDot} />
     </div>
   );
 };
