@@ -1,38 +1,43 @@
-import React from 'react';
+// Services.js
+import React, { useState } from 'react';
+import DotNavigation from '../components/DotNavigation/DotNavigation';
+import ServiceCard from '../components/ServiceCard/ServiceCard';
 import './Services.css';
-
-const ServiceCard = ({ icon, title, description }) => (
-  <div className="service-card">
-    <div className="icon-wrapper">
-      {icon}
-    </div>
-    <h3>{title}</h3>
-    <p>{description}</p>
-    <a href="/learn-more">Learn More {'>'}</a>
-  </div>
-);
+import DevicesOtherIcon from '@mui/icons-material/DevicesOtherTwoTone';
+import DisplaySettingsTwoToneIcon from '@mui/icons-material/DisplaySettingsTwoTone';
+import QueryStatsTwoToneIcon from '@mui/icons-material/QueryStatsTwoTone';
 
 const Services = () => {
+  const [currentDot, setCurrentDot] = useState(0);
+
+  const handleCardClick = (index) => {
+    setCurrentDot(index);
+  };
+
   return (
     <div className="services-section">
-      <h2>Fostering a playful & engaging learning environment</h2>
+      <h2>Fostering a playful & engaging learning environment</h2><br></br>
       <div className="services-list">
         <ServiceCard
-          icon={<i className="fa fa-desktop" aria-hidden="true"></i>}
+          icon={<DevicesOtherIcon />}
           title="User Experience"
           description="Lessons on design that cover the most recent developments."
+          onClick={() => handleCardClick(0)}
         />
         <ServiceCard
-          icon={<i className="fa fa-code" aria-hidden="true"></i>}
+          icon={<DisplaySettingsTwoToneIcon />}
           title="Web Development"
           description="Classes in development that cover the most recent advancements in web."
+          onClick={() => handleCardClick(1)}
         />
         <ServiceCard
-          icon={<i className="fa fa-bullhorn" aria-hidden="true"></i>}
+          icon={<QueryStatsTwoToneIcon />}
           title="Marketing"
           description="Marketing courses that cover the most recent marketing trends."
+          onClick={() => handleCardClick(2)}
         />
-      </div>
+      </div><br></br><br></br>
+      <DotNavigation total={3} current={currentDot} onDotClick={handleCardClick} />
     </div>
   );
 };
