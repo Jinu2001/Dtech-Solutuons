@@ -17,31 +17,30 @@ const Header = () => {
         eos pariatur voluptates beatae quaerat consectetur magni, minima minus velit cumque ipsa. Neque, odit?
       </Typography>
 
-      {/* Right-side boxes */}
       <Box
         position="absolute"
         top={50}
-        right={-620}
-        width={100}
-        height={130}
+        right={-610}
+        width={90}
+        height={122}
         bgcolor="white"
         border="1px solid #1A87C9"
         borderRadius="20px"
-        display="flex"
         alignItems="center"
         justifyContent="center"
-        flexDirection="coloumn"
-        padding="10px"
+        flexDirection="column"
+        padding="0px"
+        sx={{ marginLeft: 5, marginBottom: 1 }}
       >
         {/* Left side of the box - Laptop icon */}
-        <IconButton style={{ color: '#1A87C9', padding: 0 }}>
+        <IconButton style={{ color: '#1A87C9', paddingLeft: 24 }}>
           <LaptopIcon style={{ fontSize: 40 }} />
         </IconButton>
 
         {/* Right side of the box - Texts */}
-        <div style={{ marginLeft: 10, textAlign: 'center', flex: 1 }}>
-          <Typography variant="subtitle1" style={{ color: 'black', fontWeight: 'bold', fontSize: 16 }}>10+</Typography>
-          <Typography variant="subtitle1" style={{ color: '#c0c0c0', fontSize: 14 }}>Courses</Typography>
+        <div style={{ textAlign: 'center', flex: 1 }}>
+          <Typography variant="h1" sx={{ color: 'black',  fontSize: 30, }}>10+</Typography>
+          <Typography variant="h6" sx={{ color: 'black', fontSize: 15 }}>Courses</Typography>
         </div>
       </Box>
 
@@ -58,25 +57,25 @@ const Header = () => {
         alignItems="center"
         justifyContent="center"
         flexDirection="row"
-        padding="10px"
+        padding="0px"
       >
         {/* Left side of the box - Tutor icon */}
-        <IconButton style={{ color: '#1A87C9', padding: 0 }}>
-          <TutorIcon style={{ fontSize: 40 }} />
+        <IconButton style={{ color: '#1A87C9', paddingLeft: 10 }}>
+          <TutorIcon style={{ fontSize: 50 }} />
         </IconButton>
 
         {/* Right side of the box - Texts */}
-        <div style={{ marginLeft: 10, textAlign: 'center', flex: 1 }}>
-          <Typography variant="subtitle1" style={{ color: 'black', fontSize: 14 }}>Tutor</Typography>
-          <Typography variant="subtitle1" style={{ color: '#c0c0c0', fontSize: 14 }}>20+</Typography>
+        <div style={{ marginRight: 20, textAlign: 'center', flex: 1 }}>
+          <Typography variant="h1" style={{ color: 'black', fontSize: 30 }}>20+</Typography>
+          <Typography variant="h6" style={{ color: 'black', fontSize: 15 }}>Tutors</Typography>
         </div>
       </Box>
 
       <Box
         position="absolute"
         top={460}
-        right={-620}
-        width={100}
+        right={-650}
+        width={150}
         height={80}
         bgcolor="white"
         border="1px solid #1A87C9"
@@ -85,17 +84,18 @@ const Header = () => {
         alignItems="center"
         justifyContent="center"
         flexDirection="row"
-        padding="10px"
+        padding="0px"
       >
         {/* Left side of the box - Courses icon */}
-        <IconButton style={{ color: '#1A87C9', padding: 0 }}>
-          <CoursesIcon style={{ fontSize: 40 }} />
+        <IconButton style={{ color: '#1A87C9', paddingLeft: 10 }}>
+          <CoursesIcon style={{ fontSize: 45 }} />
         </IconButton>
 
         {/* Right side of the box - Texts */}
-        <div style={{ marginLeft: 10, textAlign: 'center', flex: 1 }}>
-          <Typography variant="subtitle1" style={{ color: 'black', fontSize: 14 }}>Video Courses</Typography>
-          <Typography variant="subtitle1" style={{ color: '#c0c0c0', fontSize: 14 }}>10+</Typography>
+        <div style={{ marginRight: 20, textAlign: 'center', flex: 1 }}>
+          <Typography variant="h1" style={{ color: 'black', fontSize: 30 }}>100+</Typography>
+          <Typography variant="h6" style={{ color: 'black', fontSize: 15 }}>Videos</Typography>
+          
         </div>
       </Box>
     </Box>
