@@ -11,6 +11,7 @@ import { CssBaseline, Container, Box } from '@mui/material';
 
 function App() {
   return (
+
     <BrowserRouter>
       <Box style={{ backgroundImage: 'url(/images/girl.png)' }}>
         <CssBaseline />
@@ -28,7 +29,8 @@ function App() {
         </Container>
       </Box>
     </BrowserRouter>
-  );
-}
+
+    
+  
 
 export default App;
