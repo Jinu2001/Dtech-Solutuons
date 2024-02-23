@@ -13,8 +13,7 @@ const Header = () => {
         <span style={{ color: '#1B86C8' }}>Career</span> Path
       </Typography>
       <Typography variant="subtitle1" mt={2}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio ipsum aspernatur vero sint molestias sunt molestiae
-        eos pariatur voluptates beatae quaerat consectetur magni, minima minus velit cumque ipsa. Neque, odit?
+      Explore a world of online learning at Dtec. Our platform offers a curated selection of courses to enhance your expertise and fuel your passions. Join us in the pursuit of knowledge and skill development. Dtec - where learning meets convenience.
       </Typography>
 
       <Box

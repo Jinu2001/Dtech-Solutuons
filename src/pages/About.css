@@ -1,6 +1,5 @@
 .about-us {
     font-family: Arial, sans-serif;
-    text-align: center;
     color: #333;
 }
 
@@ -16,16 +15,29 @@
 }
 
 .header {
+    font-size: 20px;
+    text-align: center;
     color:#1B86C8;
-    padding: 20px 0;
+    margin-bottom: 20px !important;
     animation: fadeInUp 1s ease;
 }
 
 .description {
-    margin: 20px;
+    margin: 30px 20px;
+
     padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    /* border: 1px solid #1B86C8; */
+    /* border-radius: 8px; */
     animation: fadeInUp 1s ease 0.5s;
     animation-fill-mode: backwards;
+}
+
+p{
+    margin-left: 60px;
+    margin-top: 60px;
+}
+
+.image2{
+    width: 40%;
+    height: 40%;
 }
