@@ -7,7 +7,7 @@ import { CssBaseline, Container, Box } from '@mui/material';
 
 function App() {
   return (
-    <Box style={{ backgroundImage: 'url(/images/girl.png)' }}>
+    <Box>
       <CssBaseline />
       <Container maxWidth="xl">
        <Home></Home>
