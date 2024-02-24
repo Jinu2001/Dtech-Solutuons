@@ -16,7 +16,9 @@ const Services = () => {
 
   return (
     <div className="services-section">
-      <h2>Fostering a playful & engaging learning environment</h2><br></br>
+      <span>Our Services</span><br></br>
+      <span style={{fontSize:"36px" , fontWeight:'500'}}>Fostering a playful & engaging learning</span><br></br>
+      <span style={{fontSize:"36px" , fontWeight:'500'}}>environment</span>
       <div className="services-list">
         <ServiceCard
           icon={<DevicesOtherIcon />}
