@@ -55,9 +55,10 @@ const MergedNavBar = () => {
               <Button className="nav-button" href="/about">About</Button>
               <Button className="nav-button" href="/services">Services</Button>
               <Button className="nav-button" href="/courses">Courses</Button>
-              <Button className="nav-button" href="/register">Sign in</Button>
+              </div>
+              {/* <Button className="nav-button" href="/register">Sign in</Button> */}
               <Button className="nav-button-register" href="/register">Register for Free</Button>
-            </div>
+            
           </>
         )}
         {isMobile && (

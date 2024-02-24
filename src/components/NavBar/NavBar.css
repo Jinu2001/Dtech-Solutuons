@@ -52,3 +52,7 @@ img {
 .search-input {
   width: 100%;
 }
+
+.nav-buttons-container{
+  margin-right: 200px !important;
+}
