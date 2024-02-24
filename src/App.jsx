@@ -14,14 +14,12 @@ function App() {
       <CssBaseline />
       <NavBar />
       <Box>
-        <Container maxWidth="xl">
           <div id="home"><Home /></div>
           <div id="about"><About /></div>
           <div id="services"><Services /></div>
           <div id="courses"><CoursesSection /></div>
           <div id="heroes"><HeroesSection /></div>
           <div id="contact"><Footer /></div>
-        </Container>
       </Box>
     </div>
   );
