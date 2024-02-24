@@ -15,7 +15,7 @@ const Services = () => {
   };
 
   return (
-    <div className="services-section">
+    <div className="services-section" style={{marginBottom:'4%' }}>
       <span>Our Services</span><br></br>
       <span style={{fontSize:"36px" , fontWeight:'500'}}>Fostering a playful & engaging learning</span><br></br>
       <span style={{fontSize:"36px" , fontWeight:'500'}}>environment</span>
