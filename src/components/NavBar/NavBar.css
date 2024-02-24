@@ -1,6 +1,4 @@
-
-
-img{
+img {
   width: 50px;
   height: 70px;
   margin-left: 45px;
@@ -10,18 +8,25 @@ img{
 
 .logo-text {
   color: #000000;
+  font-size: 25px !important;
 }
 
 .logo-text::first-letter {
   color: #F7AD1D;
   font-weight: 800;
-  /* font-size: larger; */
+}
+
+.nav-button-register {
+  color: white !important;
+  background-color: #4883FF !important;
+  padding: 5px 10px !important;
+  margin-left: 100px !important;
 }
 
 .nav-button {
-  font-weight:400   !important;
+  font-weight: 500 !important;
   color: black !important;
-  padding-right: 15px !important;  /* Overrides all other rules for button color */
+  padding: 0px 40px !important;
 }
 
 .nav-button:hover {
@@ -29,9 +34,21 @@ img{
   background-color: rgb(255, 255, 255) !important;
 }
 
-.nav-button-register:hover{
+.nav-button-register:hover {
   color: #F7AD1D !important;
-  /* font-weight: 100px !important; */
-  /*background-color: rgb(255, 255, 255)!important;*/
 }
 
+.merged-app-bar {
+  background-color: white !important;
+}
+
+.search-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin-right: 100px;
+}
+
+.search-input {
+  width: 100%;
+}
