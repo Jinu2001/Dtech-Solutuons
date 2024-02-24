@@ -13,7 +13,7 @@ function App() {
     <div>
       <CssBaseline />
       <NavBar />
-      <Box style={{ backgroundImage: 'url(/images/girl.png)' }}>
+      <Box>
         <Container maxWidth="xl">
           <div id="home"><Home /></div>
           <div id="about"><About /></div>
