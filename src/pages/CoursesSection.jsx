@@ -1,7 +1,8 @@
 import React, { useState} from 'react';
-import { Grid, Card, CardContent, Typography, CardMedia, Rating } from '@mui/material';
+import { Grid, Card, CardContent, Typography, CardMedia, Rating,Button } from '@mui/material';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import DotNavigation from '../components/DotNavigation/DotNavigation';
+import { Link } from 'react-router-dom';
 
 
 const courses = [
@@ -52,6 +53,7 @@ const courses = [
 ];
 
 const CourseCard = ({ course, onClick }) => { // Added onClick prop
+  const courseDetailPath = `/Courses/${course.id}`;
   return (
     <Grid item xs={12} sm={6} md={3} onClick={() => onClick(course.id)}>
       <Card>
@@ -86,6 +88,11 @@ const CourseCard = ({ course, onClick }) => { // Added onClick prop
           <Typography variant="h6" color="primary" style={{ marginTop: '8px' }}>
             {course.price}
           </Typography>
+          <Link to={courseDetailPath} style={{ textDecoration: 'none' }}>
+            <Button variant="contained" color="primary" style={{ marginTop: '16px' }}>
+              Go to Course
+            </Button>
+          </Link>
         </CardContent>
       </Card>
     </Grid>
