@@ -1,37 +1,44 @@
+/* MergedNavBar.css */
 
+/* Existing styles for img, .logo-text, .nav-button, .nav-button:hover, .nav-button-register:hover */
 
-img{
-  width: 50px;
-  height: 70px;
-  margin-left: 45px;
-  margin-right: 10px;
-  margin-top: 5px;
+.merged-app-bar {
+  background: white;
+  color: black;
+  padding: 0;
 }
 
-.logo-text {
-  color: #000000;
+.merged-toolbar {
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
 }
 
-.logo-text::first-letter {
-  color: #F7AD1D;
-  font-weight: 800;
-  /* font-size: larger; */
+.search-container {
+  flex-grow: 5;
+  margin-right: 5%;
 }
 
-.nav-button {
-  font-weight:400   !important;
-  color: black !important;
-  padding-right: 15px !important;  /* Overrides all other rules for button color */
+.search-input {
+  width: 100%;
+  margin-left: 10px;
+  height: 40px;
 }
 
-.nav-button:hover {
-  color: #F7AD1D !important;
-  background-color: rgb(255, 255, 255) !important;
+.search-button {
+  height: 25px;
+  background-color: #FffffF;
+  color: #1B86C8;
+  margin-right: 0px;
 }
 
-.nav-button-register:hover{
-  color: #F7AD1D !important;
-  /* font-weight: 100px !important; */
-  /*background-color: rgb(255, 255, 255)!important;*/
+.nav-buttons-container {
+  display: flex;
 }
 
+.mobile-search-icon,
+.mobile-menu-icon {
+  margin-left: auto;
+}
+
+/* Add any additional styles as needed */
