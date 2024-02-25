@@ -8,15 +8,15 @@ const heroes = [
     name: 'Kalana Weerasinghe',
     title: 'Application Support Analyst Lead',
     description: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
-    imageUrl: 'path_to_image',
+    imageUrl: 'public/images/WhatsApp Image 2024-01-15 at 19.53.15_a15c3cca.jpg',
     twitterUrl: 'https://twitter.com/',
     linkedInUrl: 'https://linkedin.com/'
   },
   {
     name: 'Ruwan Thushara',
     title: 'Director, Undergraduate Analytics and Planning',
-    description: 'Lead engineering teams at Figma, Pitch, and Protocol Labs.',
-    imageUrl: 'path_to_image',
+    description: 'Lead engineering teams at Figma, Pitch.',
+    imageUrl: 'public/images/WhatsApp Image 2024-01-15 at 19.53.15_a15c3cca.jpg',
     twitterUrl: 'https://twitter.com/',
     linkedInUrl: 'https://linkedin.com/'
   },
@@ -24,7 +24,7 @@ const heroes = [
     name: 'Kalana Weerasinghe',
     title: 'Application Support Analyst Lead',
     description: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
-    imageUrl: 'path_to_image',
+    imageUrl: 'public/images/WhatsApp Image 2024-01-15 at 19.53.15_a15c3cca.jpg',
     twitterUrl: 'https://twitter.com/',
     linkedInUrl: 'https://linkedin.com/'
   },
@@ -32,7 +32,7 @@ const heroes = [
     name: 'Kalana Weerasinghe',
     title: 'Application Support Analyst Lead',
     description: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
-    imageUrl: 'path_to_image',
+    imageUrl: 'public/images/WhatsApp Image 2024-01-15 at 19.53.15_a15c3cca.jpg',
     twitterUrl: 'https://twitter.com/',
     linkedInUrl: 'https://linkedin.com/'
   }
@@ -40,24 +40,28 @@ const heroes = [
 
 const HeroCard = ({ hero }) => {
   return (
-    <Card sx={{ maxWidth: 300, m: 2 }}>
+    <Card  style={{background:'#F9FAFB'}} sx={{ maxWidth: 300, margin: '20px' , height:'320px'}}>
       <CardMedia
-        component="img"
-        height="140"
+        // component="img"
         image={hero.imageUrl}
         alt={hero.name}
+
+        // component="img"
+        style={{ objectFit: 'cover' ,width:'80px', height: '80px', borderRadius: '100%' , margin: '20px 50px  10px 110px'}}
+
+
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h5" component="div" style={{textAlign:'center '}}>
           {hero.name}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" style={{textAlign:'center ', color:'#084674',marginBottom:'20px' }}>
           {hero.title}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.secondary" style={{marginBottom:'20px', textAlign:'center'}}>
           {hero.description}
         </Typography>
-        <Box sx={{ mt: 2 }}>
+        <Box sx={{ mt: 2, textAlign: 'center' }} >
           <IconButton aria-label="twitter" href={hero.twitterUrl}>
             <TwitterIcon />
           </IconButton>
@@ -72,7 +76,7 @@ const HeroCard = ({ hero }) => {
 
 const HeroesSection = () => {
   return (
-    <Box sx={{ flexGrow: 1, backgroundColor: '#f0f4f8', p: 4,mb:4}}>
+    <Box sx={{ flexGrow: 1, p: 4,mb:4}}>
        <Typography variant="h6" sx={{ mb: 2 }} style={{textAlign:'center',color:'#084674', fontWeight:'bold'}}>
         Tutors
       </Typography>

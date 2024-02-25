@@ -58,43 +58,43 @@ const courses = [
 const CourseCard = ({ course, onClick }) => { // Added onClick prop
   return (
     <Grid item xs={12} sm={6} md={3} onClick={() => onClick(course.id)}>
-      <Card>
-          <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' ,marginBottom:'10px', marginLeft:'220px'}}>
-            <AccessTimeIcon style={{ marginRight: '4px', color:'#667085', width:'14px', height:'18px' }} />
-            <Typography variant="body2" color="text.secondary" style={{fontSize:'14px'}}>
-              {course.duration}
+        <Card>
+            <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' ,marginBottom:'10px', marginLeft:'220px'}}>
+              <AccessTimeIcon style={{ marginRight: '4px', color:'#667085', width:'14px', height:'18px' }} />
+              <Typography variant="body2" color="text.secondary" style={{fontSize:'14px'}}>
+                {course.duration}
+              </Typography>
+            </div>
+          <CardMedia
+            // component="img"
+            image={course.imageUrl}
+            alt={course.title}
+            style={{ objectFit: 'cover' , height: '250px', }}
+          />
+          <CardContent>
+          <Typography gutterBottom variant="subtltle2" component="div" style={{color:'#1B86C8', fontSize:'12px'}}>
+              {course.subtitle}
             </Typography>
-          </div>
-        <CardMedia
-          // component="img"
-          image={course.imageUrl}
-          alt={course.title}
-          style={{ objectFit: 'cover' , height: '250px', }}
-        />
-        <CardContent>
-        <Typography gutterBottom variant="subtltle2" component="div" style={{color:'#1B86C8', fontSize:'12px'}}>
-            {course.subtitle}
-          </Typography>
-          <Typography gutterBottom variant="h5" component="div" style={{fontWeight:'500'}}>
-            {course.title}
-          </Typography>
-          <Typography variant="body2" color="text.secondary" style={{color:'#667085', fontSize:'15px'}}>
-            {course.description}
-          </Typography>
-          <div style={{ display: 'flex', alignItems: 'center', marginTop: '8px' }}>
-            <Rating name="read-only" value={course.rating} readOnly />
-            <Typography variant="body2" color="text.secondary" style={{ marginLeft: '8px' }}>
-              ({course.totalRatings.toLocaleString()})
+            <Typography gutterBottom variant="h5" component="div" style={{fontWeight:'500'}}>
+              {course.title}
             </Typography>
-          </div>
-          <Typography variant="body2" style={{ marginTop: '16px' }}>
-            <strong>{course.enrolled.toLocaleString()}</strong> Enrolled
-          </Typography>
-          <Typography variant="h6" color="primary" style={{ marginTop: '8px' }}>
-            {course.price}
-          </Typography>
-        </CardContent>
-      </Card>
+            <Typography variant="body2" color="text.secondary" style={{color:'#667085', fontSize:'15px'}}>
+              {course.description}
+            </Typography>
+            <div style={{ display: 'flex', alignItems: 'center', marginTop: '8px' }}>
+              <Rating name="read-only" value={course.rating} readOnly />
+              <Typography variant="body2" color="text.secondary" style={{ marginLeft: '8px' }}>
+                ({course.totalRatings.toLocaleString()})
+              </Typography>
+            </div>
+            <Typography variant="body2" style={{ marginTop: '16px' }}>
+              <strong>{course.enrolled.toLocaleString()}</strong> Enrolled
+            </Typography>
+            <Typography variant="h6" color="primary" style={{ marginTop: '8px' }}>
+              {course.price}
+            </Typography>
+          </CardContent>
+        </Card>
     </Grid>
   );
 };
