@@ -1,14 +1,21 @@
+/* Global Styles */
 img {
-  width: 50px;
+  width: 60px;
   height: 70px;
-  margin-left: 45px;
-  margin-right: 10px;
+  margin-left: 60px;
+  margin-right: 0px;
   margin-top: 5px;
+}
+
+/* Component-specific Styles */
+.merged-app-bar {
+  background-color: white !important;
 }
 
 .logo-text {
   color: #000000;
   font-size: 25px !important;
+  margin-right: 490px !important;
 }
 
 .logo-text::first-letter {
@@ -26,7 +33,7 @@ img {
 .nav-button {
   font-weight: 500 !important;
   color: black !important;
-  padding: 0px 40px !important;
+  padding: 0px 35px !important;
 }
 
 .nav-button:hover {
@@ -34,25 +41,12 @@ img {
   background-color: rgb(255, 255, 255) !important;
 }
 
+.nav-button-hover {
+  color: #F7AD1D !important;
+  background-color: rgb(255, 255, 255) !important;
+}
+
 .nav-button-register:hover {
   color: #F7AD1D !important;
-}
-
-.merged-app-bar {
-  background-color: white !important;
-}
-
-.search-container {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  margin-right: 100px;
-}
-
-.search-input {
-  width: 100%;
-}
-
-.nav-buttons-container{
-  margin-right: 210px !important;
+  background-color: rgb(0, 0, 0) !important;
 }

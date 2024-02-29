@@ -42,8 +42,7 @@ export default App;
 const Root = ()=>{
 
   return(
-      <Box style={{ backgroundImage: 'url(/images/girl.png)' }}>
-          <Container maxWidth="xl">
+      <Box>
             {/* Static content or links can remain outside of Routes */}
             <div id="home"><Home /></div>
             <div id="about"><About /></div>
@@ -51,7 +50,6 @@ const Root = ()=>{
             <div id="courses"><CoursesSection /></div>
             <div id="heroes"><HeroesSection /></div>
             <div id="contact"><Footer /></div>
-          </Container>
       </Box>
   )
 }
