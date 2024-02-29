@@ -35,12 +35,12 @@ const MergedNavBar = () => {
       color: 'white !important',
       backgroundColor: '#4883FF !important',
       padding: '5px 10px !important',
-      marginLeft: '100px !important',
+      marginLeft: '70px !important',
     },
     navButton: {
       fontWeight: '500 !important',
       color: 'black !important',
-      padding: '0px 40px !important',
+      padding: '0px 20px !important',
     },
     navButtonsContainer: {
       marginRight: '210px !important',
@@ -61,7 +61,7 @@ const MergedNavBar = () => {
             <Button sx={styles.navButton} onClick={() => scrollToSection('about')}>About</Button>
             <Button sx={styles.navButton} onClick={() => scrollToSection('services')}>Services</Button>
             <Button sx={styles.navButton} onClick={() => scrollToSection('courses')}>Courses</Button>
-            <Button sx={styles.navButtonRegister} onClick={() => scrollToSection('register')}>Register for Free</Button>
+            <Button sx={styles.navButtonRegister} onClick={() => scrollToSection('register')}>Register </Button>
           </div>
         )}
         {isMobile && (
@@ -69,7 +69,7 @@ const MergedNavBar = () => {
             <IconButton color="inherit">
               <SearchIcon />
             </IconButton>
-            <IconButton color="inherit" onClick={() => {/* Implement mobile menu logic here */}}>
+            <IconButton color="inherit">
               <MenuIcon />
             </IconButton>
           </>
