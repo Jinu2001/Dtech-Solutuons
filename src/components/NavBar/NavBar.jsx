@@ -2,10 +2,13 @@ import React, { useCallback } from 'react';
 import { AppBar, Toolbar, Typography, Button, IconButton, useMediaQuery, useTheme } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-const MergedNavBar = () => {
+const NavBar = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const scrollToSection = useCallback((sectionId) => {
     const section = document.getElementById(sectionId);
@@ -14,10 +17,17 @@ const MergedNavBar = () => {
     }
   }, []);
 
-  // Inline styles
+  const handleNavigation = useCallback((sectionId, path = '/') => {
+    if (path === '/' && location.pathname === '/') {
+      scrollToSection(sectionId);
+    } else {
+      navigate(path, { state: { sectionId } });
+    }
+  }, [navigate, location.pathname, scrollToSection]);
+  
   const styles = {
     appBar: {
-      backgroundColor: 'white !important',
+      backgroundColor: 'white',
     },
     logo: {
       width: '50px',
@@ -28,40 +38,41 @@ const MergedNavBar = () => {
     },
     logoText: {
       color: '#000000',
-      fontSize: '25px !important',
+      fontSize: '25px',
       flexGrow: 1,
     },
     navButtonRegister: {
-      color: 'white !important',
-      backgroundColor: '#4883FF !important',
-      padding: '5px 10px !important',
-      marginLeft: '70px !important',
+      color: 'white',
+      backgroundColor: '#4883FF',
+      padding: '5px 10px',
+      marginLeft: '70px',
     },
     navButton: {
-      fontWeight: '500 !important',
-      color: 'black !important',
-      padding: '0px 20px !important',
+      fontWeight: '500',
+      color: 'black',
+      padding: '0px 20px',
     },
     navButtonsContainer: {
-      marginRight: '210px !important',
+      marginRight: '210px',
     },
   };
 
   return (
     <AppBar position="static" sx={styles.appBar}>
       <Toolbar>
-        <img src='./assets/logo.png' alt="Logo" sx={styles.logo} />
+        <img src='./assets/logo.png' alt="Logo" style={styles.logo} />
         <Typography sx={styles.logoText} component="div">
-          <span style={{ color: '#F7AD1D', fontWeight: '800' }}>D</span>TEC
+          DTEC
         </Typography>
 
         {!isMobile && (
-          <div style={styles.navButtonsContainer}>
-            <Button sx={styles.navButton} onClick={() => scrollToSection('home')}>Home</Button>
-            <Button sx={styles.navButton} onClick={() => scrollToSection('about')}>About</Button>
-            <Button sx={styles.navButton} onClick={() => scrollToSection('services')}>Services</Button>
-            <Button sx={styles.navButton} onClick={() => scrollToSection('courses')}>Courses</Button>
-            <Button sx={styles.navButtonRegister} onClick={() => scrollToSection('register')}>Register </Button>
+          <div sx={styles.navButtonsContainer}>
+            <Button sx={styles.navButton} onClick={() => handleNavigation('home', '/')}>Home</Button>
+<Button sx={styles.navButton} onClick={() => handleNavigation('about', '/')}>About</Button>
+<Button sx={styles.navButton} onClick={() => handleNavigation('services', '/')}>Services</Button>
+<Button sx={styles.navButton} onClick={() => handleNavigation('courses', '/')}>Courses</Button>
+<Button sx={styles.navButtonRegister} onClick={() => handleNavigation('register', '/')}>Register</Button>
+
           </div>
         )}
         {isMobile && (
@@ -79,4 +90,4 @@ const MergedNavBar = () => {
   );
 };
 
-export default MergedNavBar;
+export default NavBar;

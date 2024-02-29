@@ -1,5 +1,6 @@
 import React from 'react';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from 'react';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -13,45 +14,47 @@ import Python from './pages/Courses/python';
 import Graphic from './pages/Courses/Graphic';
 import Robotics from './pages/Courses/Robotics';
 
-
-
 function App() {
   return (
-  
-      <div>
-        <CssBaseline />
-        <NavBar />
-            
-          <Routes>
-            
-            <Route path='/' Component={Root}/>
-            <Route path="/courses/web-designing" Component={Web} />
-            <Route path="/courses/python-for-beginners" Component={Python } />
-            <Route path="/courses/robotics" Component={Robotics } />
-            <Route path="/courses/graphic-designing" Component={Graphic} />
-            
-          </Routes>
-         
-      </div>
-   
+    <div>
+      <CssBaseline />
+      <NavBar />
+      <Routes>
+        <Route path='/' element={<Root />} />
+        <Route path="/courses/web-designing" element={<Web />} />
+        <Route path="/courses/python-for-beginners" element={<Python />} />
+        <Route path="/courses/robotics" element={<Robotics />} />
+        <Route path="/courses/graphic-designing" element={<Graphic />} />
+      </Routes>
+    </div>
+  );
+}
+
+const Root = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const sectionId = location.state?.sectionId;
+    if (sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }, [location]);
+
+  return (
+    <Box style={{ backgroundImage: 'url(/images/girl.png)' }}>
+      <Container maxWidth="xl">
+        <div id="home"><Home /></div>
+        <div id="about"><About /></div>
+        <div id="services"><Services /></div>
+        <div id="courses"><CoursesSection /></div>
+        <div id="heroes"><HeroesSection /></div>
+        <div id="contact"><Footer /></div>
+      </Container>
+    </Box>
   );
 }
 
 export default App;
-
-const Root = ()=>{
-
-  return(
-      <Box style={{ backgroundImage: 'url(/images/girl.png)' }}>
-          <Container maxWidth="xl">
-            {/* Static content or links can remain outside of Routes */}
-            <div id="home"><Home /></div>
-            <div id="about"><About /></div>
-            <div id="services"><Services /></div>
-            <div id="courses"><CoursesSection /></div>
-            <div id="heroes"><HeroesSection /></div>
-            <div id="contact"><Footer /></div>
-          </Container>
-      </Box>
-  )
-}
