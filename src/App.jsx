@@ -7,21 +7,25 @@ import HeroesSection from './pages/HeroesSection';
 import Footer from './pages/Footer';
 import NavBar from './components/NavBar/NavBar';
 import { CssBaseline, Container, Box } from '@mui/material';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <div>
-      <CssBaseline />
-      <NavBar />
-      <Box>
-          <div id="home"><Home /></div>
-          <div id="about"><About /></div>
-          <div id="services"><Services /></div>
-          <div id="courses"><CoursesSection /></div>
-          <div id="heroes"><HeroesSection /></div>
-          <div id="contact"><Footer /></div>
-      </Box>
-    </div>
+    <router>
+      <div>
+        <switch>
+          <CssBaseline />
+          <NavBar />
+          <Home />
+          <About />
+          <Services />
+          <CoursesSection />
+          <HeroesSection />
+          <Footer />
+          {/* <Course1 /> */}
+        </switch>
+      </div>
+    </router>
   );
 }
 
