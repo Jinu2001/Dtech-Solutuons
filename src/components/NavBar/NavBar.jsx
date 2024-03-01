@@ -59,7 +59,7 @@ const NavBar = () => {
   };
 
   return (
-    <AppBar position="fixed" sx={styles.appBar }>
+    <AppBar position="absolute" sx={styles.appBar }>
       <Toolbar>
         <img src='./assets/logo.png' alt="Logo" style={styles.logo} />
         <Typography sx={styles.logoText} component="div">
