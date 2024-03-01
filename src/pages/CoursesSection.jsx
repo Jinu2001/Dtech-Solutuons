@@ -8,6 +8,7 @@ const courses = [
   {
     id: 1,
     title: 'Web Designing',
+    subtitle: 'Coding courses',
     description: 'Use Figma to get a job in UI Design, User Interface, User Experience design.',
     duration: '08 hr 12 mins',
     rating: 4.3,
@@ -19,6 +20,7 @@ const courses = [
   {
     id: 2,
     title: 'Python for Beginners',
+    subtitle: 'Coding courses',
     description: 'Design Web Sites and Mobile Apps that Your Users Love and Return to Again.',
     duration: '06 hr 3 mins',
     rating: 4.2,
@@ -30,6 +32,7 @@ const courses = [
   {
     id: 3,
     title: 'Robotics',
+    subtitle: 'Coding courses',
     description: 'Use Figma to get a job in UI Design, User Interface, User Experience design.',
     duration: '01 hr 2 mins',
     rating: 4.0,
@@ -41,12 +44,13 @@ const courses = [
   {
     id: 4, // Fixed ID to be unique
     title: 'Graphic Designing',
+    subtitle: 'Coding courses',
     description: 'Use Figma to get a job in UI Design, User Interface, User Experience design.',
     duration: '01 hr 2 mins',
     rating: 4.0,
     totalRatings: 125,
     enrolled: 800,
-    price: 'Price',
+    price: 'LKR 5200',
     imageUrl: './images/graphic.jpg',
   },
 ];
@@ -68,14 +72,24 @@ const CourseCard = ({ course }) => {
   return (
     <Grid item xs={12} sm={6} md={3} >
       <Card>
-        <CardMedia
+      <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' ,marginBottom:'10px', marginLeft:'220px'}}>
+            <AccessTimeIcon style={{ marginRight: '4px', color:'#667085', width:'14px', height:'18px' }} />
+            <Typography variant="body2" color="text.secondary" style={{fontSize:'14px'}}>
+              {course.duration}
+            </Typography>
+          </div>
+          <CardMedia
           component="img"
           height="140"
           image={course.imageUrl}
           alt={course.title}
+
         />
-        <CardContent>
+         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
+
+
+
             {course.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
@@ -96,13 +110,16 @@ const CourseCard = ({ course }) => {
           <Typography variant="body2" style={{ marginTop: '16px' }}>
             <strong>{course.enrolled.toLocaleString()}</strong> Enrolled
           </Typography>
+
           <Typography variant="h6" color="primary" style={{ marginTop: '8px' }}>
             {course.price}
           </Typography>
           <Button variant="contained" color="primary" style={{ marginTop: '16px' }} onClick={goToCourse}>
           Go to Course
-        </Button>
+          </Button>
+
         </CardContent>
+
       </Card>
     </Grid>
   );
@@ -112,18 +129,17 @@ const CoursesSection = () => {
   
 
   return (
-    <div style={{ padding: '20px', backgroundColor: '#f0f4f8', marginBottom:'2%'}}>
-      <Typography variant="h6" style={{ marginBottom: '16px' }}>
+    <div style={{ padding: '0px 30px', backgroundColor: 'white', marginBottom:'2%'}}>
+      <Typography variant="h6" style={{ marginBottom: '0px', fontSize:'15px', textAlign:'center' }}>
         Explore Programs
       </Typography>
-      <Typography variant="h4" component="h2" style={{ marginBottom: '16px' }}>
+      <Typography variant="h4" component="h2" style={{ marginBottom: '16px',textAlign:'center' }}>
         Our Most Popular Courses
       </Typography>
-      <Typography variant="body1" style={{ marginBottom: '20px' }}>
+      <Typography variant="body1" style={{ marginBottom: '40px' ,fontSize:'12px', textAlign:'center'}}>
         Let's join our famous class, the knowledge provided will definitely be useful for you.
       </Typography>
-      <Grid container spacing={2} sx={{m:2}} >
-        {courses.map(course => (
+      <Grid container spacing={2}style={{marginBottom:'50px'}} >        {courses.map(course => (
           <CourseCard key={course.id} course={course} />
         ))}
       </Grid>

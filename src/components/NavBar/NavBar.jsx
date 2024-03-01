@@ -36,6 +36,7 @@ const NavBar = () => {
   }, []);
   
 
+<<<<<<< HEAD
   const handleNavigation = useCallback((sectionId, path = '/') => {
     if (path === '/' && location.pathname === '/') {
       document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -91,4 +92,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default MergedNavBar;
