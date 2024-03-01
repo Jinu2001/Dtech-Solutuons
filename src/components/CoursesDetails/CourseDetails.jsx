@@ -10,8 +10,10 @@ import {
   ListItem,
   ListItemText,
   Avatar,
-  Grid
+  Grid,
+  ListItemIcon
 } from '@mui/material';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'; // Import the CheckCircleIcon
 import { useNavigate } from 'react-router-dom';
 
 const CourseDetail = ({ course }) => {
@@ -22,9 +24,8 @@ const CourseDetail = ({ course }) => {
     navigate(-1); // This will take you back to the previous page
   };
 
-
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="md" style={{ backgroundImage: `url(${course.backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <Button onClick={handleBackClick} sx={{ mt: 2 }}>Back to Courses</Button>
       <Card sx={{ my: 4 }}>
         <CardMedia
@@ -34,7 +35,7 @@ const CourseDetail = ({ course }) => {
           alt={course.name}
         />
         <CardContent>
-          <Typography gutterBottom variant="h4" component="div">
+          <Typography gutterBottom variant="h4" component="div" style={{color:'#1A87C9', textAlign:'center'}}>
             {course.name}
           </Typography>
           <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
@@ -46,11 +47,14 @@ const CourseDetail = ({ course }) => {
           <List>
             {course.content.map((item, index) => (
               <ListItem key={index}>
+                <ListItemIcon>
+                  <CheckCircleIcon style={{ color: '#1A87C9' , width:'18px', height:'18px'}} /> {/* Blue tick icon */}
+                </ListItemIcon>
                 <ListItemText primary={item} />
               </ListItem>
             ))}
           </List>
-          <Grid container spacing={2} alignItems="center" sx={{ mt: 4 }}>
+          <Grid container spacing={2} alignItems="center" sx={{ mt: 1 }}>
             <Grid item>
               <Avatar
                 alt={course.tutor.name}
