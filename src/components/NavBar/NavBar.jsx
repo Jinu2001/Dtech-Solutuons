@@ -28,6 +28,7 @@ const NavBar = () => {
   const styles = {
     appBar: {
       backgroundColor: 'white',
+      boxShadow:'none'
     },
     logo: {
       width: '50px',
@@ -58,7 +59,7 @@ const NavBar = () => {
   };
 
   return (
-    <AppBar position="static" sx={styles.appBar}>
+    <AppBar position="fixed" sx={styles.appBar }>
       <Toolbar>
         <img src='./assets/logo.png' alt="Logo" style={styles.logo} />
         <Typography sx={styles.logoText} component="div">
