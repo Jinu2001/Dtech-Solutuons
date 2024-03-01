@@ -12,11 +12,9 @@ const ButtonsComponent = () => {
 
   return (
     <Stack direction="row" spacing={2} sx={stackStyle}>
-      <Button variant="contained" color="primary" sx={{ textTransform: 'none'}}>
-        Get Started
-      </Button>
+      
       <Button variant="outlined" color="primary" sx={{ textTransform: 'none', backgroundColor: '#E1F4FF', color: '#084674' }}>
-        Get free trial
+        Join my whatsapp group here
       </Button>
     </Stack>
   );
