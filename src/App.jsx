@@ -44,7 +44,7 @@ const Root = () => {
   }, [location]);
 
   return (
-    <Box style={{paddingTop: '5%', backgroundImage: 'url(/images/girl.png)' }}>
+    <Box style={{paddingTop: '5%', backgroundImage: '' }}>
       <Container maxWidth="xl">
         <div id="home"><Home /></div>
         <div id="about"><About /></div>
