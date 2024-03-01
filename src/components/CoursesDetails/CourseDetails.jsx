@@ -15,6 +15,7 @@ import {
 } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'; // Import the CheckCircleIcon
 import { useNavigate } from 'react-router-dom';
+import './CourseDetails.css';
 
 const CourseDetail = ({ course }) => {
   const navigate = useNavigate();
@@ -25,8 +26,16 @@ const CourseDetail = ({ course }) => {
   };
 
   return (
-    <Container maxWidth="md" style={{ backgroundImage: `url(${course.backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <Button onClick={handleBackClick} sx={{ mt: 2 }}>Back to Courses</Button>
+    <div className='zxc'>
+      <Container maxWidth="md" style={{marginTop:'120px'}}>
+    
+      <Button
+  className='backButton'
+  onClick={handleBackClick}
+  sx={{ mt: 2, backgroundColor:'#1A87C9', color:'white', ':hover': { backgroundColor: 'white', color: '#1A87C9', border: '1px solid #1A87C9', borderRadius: '5px' } }}
+>
+  Back to Courses
+</Button>
       <Card sx={{ my: 4 }}>
         <CardMedia
           component="img"
@@ -74,6 +83,7 @@ const CourseDetail = ({ course }) => {
         </CardContent>
       </Card>
     </Container>
+    </div>
   );
 };
 
