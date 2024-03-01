@@ -78,21 +78,29 @@ const CourseCard = ({ course }) => {
               {course.duration}
             </Typography>
           </div>
-        <CardMedia
+          <CardMedia
+          component="img"
+          height="140"
           image={course.imageUrl}
           alt={course.title}
-          style={{ objectFit: 'cover' , height: '250px', }}
+
         />
-        <CardContent>
-        <Typography gutterBottom variant="subtltle2" component="div" style={{color:'#1B86C8', fontSize:'12px'}}>
-            {course.subtitle}
-          </Typography>
-          <Typography gutterBottom variant="h5" component="div" style={{fontWeight:'500'}}>
+         <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+
+
+
             {course.title}
           </Typography>
-          <Typography variant="body2" color="text.secondary" style={{color:'#667085', fontSize:'15px'}}>
+          <Typography variant="body2" color="text.secondary">
             {course.description}
           </Typography>
+          <div style={{ display: 'flex', alignItems: 'center', marginTop: '8px' }}>
+            <AccessTimeIcon style={{ marginRight: '4px' }} />
+            <Typography variant="body2" color="text.secondary">
+              {course.duration}
+            </Typography>
+          </div>
           <div style={{ display: 'flex', alignItems: 'center', marginTop: '8px' }}>
             <Rating name="read-only" value={course.rating} readOnly />
             <Typography variant="body2" color="text.secondary" style={{ marginLeft: '8px' }}>
@@ -102,15 +110,16 @@ const CourseCard = ({ course }) => {
           <Typography variant="body2" style={{ marginTop: '16px' }}>
             <strong>{course.enrolled.toLocaleString()}</strong> Enrolled
           </Typography>
-          <div style={{ display: 'flex'}}>
+
           <Typography variant="h6" color="primary" style={{ marginTop: '8px' }}>
             {course.price}
           </Typography>
-          <Button variant="contained" style={{ marginTop: '16px', marginLeft:'80px',backgroundColor:'#1A87C9'}} onClick={goToCourse}>
+          <Button variant="contained" color="primary" style={{ marginTop: '16px' }} onClick={goToCourse}>
           Go to Course
           </Button>
-          </div>
+
         </CardContent>
+
       </Card>
     </Grid>
   );
@@ -130,8 +139,7 @@ const CoursesSection = () => {
       <Typography variant="body1" style={{ marginBottom: '40px' ,fontSize:'12px', textAlign:'center'}}>
         Let's join our famous class, the knowledge provided will definitely be useful for you.
       </Typography>
-      <Grid container spacing={2}style={{marginBottom:'50px'}} >
-        {courses.map(course => (
+      <Grid container spacing={2}style={{marginBottom:'50px'}} >        {courses.map(course => (
           <CourseCard key={course.id} course={course} />
         ))}
       </Grid>
