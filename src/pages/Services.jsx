@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Grid } from '@mui/material';
 import DotNavigation from '../components/DotNavigation/DotNavigation';
 import ServiceCard from '../components/ServiceCard/ServiceCard';
 import DevicesOtherIcon from '@mui/icons-material/DevicesOtherTwoTone';
@@ -7,67 +8,23 @@ import QueryStatsTwoToneIcon from '@mui/icons-material/QueryStatsTwoTone';
 
 const Services = () => {
   const [currentDot, setCurrentDot] = useState(0);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const styles = {
-    servicesSection: {
-      textAlign: 'center',
-      backgroundColor: 'white',
-      padding: '40px',
-      marginBottom: '5%',
-    },
-    servicesList: {
-      display: 'flex',
-      flexDirection: isMobile ? 'column' : 'row',
-      justifyContent: 'space-around',
-      marginTop: '20px',
-    },
-    serviceCard: {
-      width: isMobile ? '100%' : 'initial', // Adjust card width on mobile
-      marginBottom: isMobile ? '20px' : '0', // Add space between cards on mobile
-    },
-  };
-
-  const handleCardClick = (index) => {
-    setCurrentDot(index);
-  };
 
   return (
-    <div style={styles.servicesSection}>
+    <div style={{ textAlign: 'center', backgroundColor: 'white', padding: '40px', marginBottom: '5%' }}>
       <h2>Fostering a playful & engaging learning environment</h2><br />
-      <div style={styles.servicesList}>
-        <ServiceCard
-          icon={<DevicesOtherIcon />}
-          title="User Experience"
-          description="Lessons on design that cover the most recent developments."
-          onClick={() => handleCardClick(0)}
-          style={styles.serviceCard}
-        />
-        <ServiceCard
-          icon={<DisplaySettingsTwoToneIcon />}
-          title="Web Development"
-          description="Classes in development that cover the most recent advancements in web."
-          onClick={() => handleCardClick(1)}
-          style={styles.serviceCard}
-        />
-        <ServiceCard
-          icon={<QueryStatsTwoToneIcon />}
-          title="Marketing"
-          description="Marketing courses that cover the most recent marketing trends."
-          onClick={() => handleCardClick(2)}
-          style={styles.serviceCard}
-        />
-      </div><br /><br />
-      <DotNavigation total={3} current={currentDot} onDotClick={handleCardClick} />
+      <Grid container spacing={2} justifyContent="center">
+        {Array.from({ length: 6 }).map((_, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <ServiceCard
+              icon={index % 3 === 0 ? <DevicesOtherIcon /> : index % 3 === 1 ? <DisplaySettingsTwoToneIcon /> : <QueryStatsTwoToneIcon />}
+              title={index % 3 === 0 ? "User Experience" : index % 3 === 1 ? "Web Development" : "Marketing"}
+              description="Description based on index."
+              onClick={() => handleCardClick(index % 3)}
+            />
+          </Grid>
+        ))}
+      </Grid><br /><br />
+      <DotNavigation total={3} current={currentDot} onDotClick={setCurrentDot} />
     </div>
   );
 };
