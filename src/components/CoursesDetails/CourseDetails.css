@@ -1,4 +1,4 @@
-body {
+.zxc {
     background-image: url(public/images/back2.png);
     background-size: 500px 500px;
     background-repeat: repeat; /* or 'repeat-x' or 'repeat-y' if you want to repeat only horizontally or vertically */
@@ -8,4 +8,5 @@ body {
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.2); /* Change the last value (0.8) to adjust opacity */
   }
+
   
