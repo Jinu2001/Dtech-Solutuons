@@ -1,95 +1,93 @@
-import React, { useState, useCallback } from 'react';
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  IconButton,
-  Drawer,
-  List,
-  ListItem,
-  ListItemText,
-  useMediaQuery,
-  useTheme,
-} from '@mui/material';
+import React, { useCallback } from 'react';
+import { AppBar, Toolbar, Typography, Button, IconButton, useMediaQuery, useTheme } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate, useLocation } from 'react-router-dom';
-
-const navigationItems = [
-  { name: 'Home', sectionId: 'home' },
-  { name: 'About', sectionId: 'about' },
-  { name: 'Services', sectionId: 'services' },
-  { name: 'Courses', sectionId: 'courses' },
-  { name: 'Register', sectionId: 'register', isRegister: true },
-];
 
 const NavBar = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Adjust breakpoint as needed
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const navigate = useNavigate();
   const location = useLocation();
-  const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const toggleDrawer = useCallback((open) => (event) => {
-    // Close the drawer on specific keyboard events or set it based on the open argument
-    setDrawerOpen(open);
+  const scrollToSection = useCallback((sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }, []);
-  
 
-<<<<<<< HEAD
   const handleNavigation = useCallback((sectionId, path = '/') => {
     if (path === '/' && location.pathname === '/') {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      scrollToSection(sectionId);
     } else {
       navigate(path, { state: { sectionId } });
     }
-    setDrawerOpen(false);
-  }, [navigate, location.pathname]);
+  }, [navigate, location.pathname, scrollToSection]);
+  
+  const styles = {
+    appBar: {
+      backgroundColor: 'white',
+    },
+    logo: {
+      width: '50px',
+      height: '70px',
+      marginLeft: '45px',
+      marginRight: '10px',
+      marginTop: '5px',
+    },
+    logoText: {
+      color: '#000000',
+      fontSize: '25px',
+      flexGrow: 1,
+    },
+    navButtonRegister: {
+      color: 'white',
+      backgroundColor: '#4883FF',
+      padding: '5px 10px',
+      marginLeft: '70px',
+    },
+    navButton: {
+      fontWeight: '500',
+      color: 'black',
+      padding: '0px 20px',
+    },
+    navButtonsContainer: {
+      marginRight: '210px',
+    },
+  };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'white' }}>
+    <AppBar position="static" sx={styles.appBar}>
       <Toolbar>
-        <img src='./assets/logo.png' alt="Logo" sx={{ width: '50px', height: '70px', ml: '45px', mr: '10px', mt: '5px' }} />
-        <Typography sx={{ flexGrow: 1, color: '#000', fontSize: '25px' }}>
+        <img src='./assets/logo.png' alt="Logo" style={styles.logo} />
+        <Typography sx={styles.logoText} component="div">
           DTEC
         </Typography>
-        {isMobile ? (
+
+        {!isMobile && (
+          <div sx={styles.navButtonsContainer}>
+            <Button sx={styles.navButton} onClick={() => handleNavigation('home', '/')}>Home</Button>
+<Button sx={styles.navButton} onClick={() => handleNavigation('about', '/')}>About</Button>
+<Button sx={styles.navButton} onClick={() => handleNavigation('services', '/')}>Services</Button>
+<Button sx={styles.navButton} onClick={() => handleNavigation('courses', '/')}>Courses</Button>
+<Button sx={styles.navButtonRegister} onClick={() => handleNavigation('register', '/')}>Register</Button>
+
+          </div>
+        )}
+        {isMobile && (
           <>
-            <IconButton color="inherit" onClick={toggleDrawer(true)}>
+            <IconButton color="inherit">
+              <SearchIcon />
+            </IconButton>
+            <IconButton color="inherit">
               <MenuIcon />
             </IconButton>
-            <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
-              <List>
-                {navigationItems.map((item) => (
-                  <ListItem button key={item.name} onClick={() => handleNavigation(item.sectionId)}>
-                    <ListItemText primary={item.name} />
-                  </ListItem>
-                ))}
-              </List>
-            </Drawer>
           </>
-        ) : (
-          <div>
-            {navigationItems.map((item) => (
-              <Button
-                key={item.name}
-                onClick={() => handleNavigation(item.sectionId)}
-                sx={{
-                  fontWeight: '500',
-                  color: item.isRegister ? 'white' : 'black',
-                  bgcolor: item.isRegister ? '#4883FF' : 'transparent',
-                  padding: '5px 20px',
-                  ml: item.isRegister ? '70px' : '0',
-                }}
-              >
-                {item.name}
-              </Button>
-            ))}
-          </div>
         )}
       </Toolbar>
     </AppBar>
   );
 };
 
-export default MergedNavBar;
+export default NavBar;
