@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Grid } from '@mui/material';
 import DotNavigation from '../components/DotNavigation/DotNavigation';
 import ServiceCard from '../components/ServiceCard/ServiceCard';
-import DevicesOtherIcon from '@mui/icons-material/DevicesOtherTwoTone';
-import DisplaySettingsTwoToneIcon from '@mui/icons-material/DisplaySettingsTwoTone';
-import QueryStatsTwoToneIcon from '@mui/icons-material/QueryStatsTwoTone';
+import CreateIcon from '@mui/icons-material/Create';
+import LanguageIcon from '@mui/icons-material/Language';
+import DesktopWindowsIcon from '@mui/icons-material/DesktopWindows';
+import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
+import RouterIcon from '@mui/icons-material/Router';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 
 const Services = () => {
   const [currentDot, setCurrentDot] = useState(0);
@@ -16,8 +19,8 @@ const Services = () => {
         {Array.from({ length: 6 }).map((_, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <ServiceCard
-              icon={index % 3 === 0 ? <DevicesOtherIcon /> : index % 3 === 1 ? <DisplaySettingsTwoToneIcon /> : <QueryStatsTwoToneIcon />}
-              title={index % 3 === 0 ? "User Experience" : index % 3 === 1 ? "Web Development" : "Marketing"}
+              icon={index % 6 === 0 ? <CreateIcon /> : index % 6 === 1 ? <LanguageIcon /> : index % 6 === 2 ? <DesktopWindowsIcon /> : index % 6 === 3 ? <PhoneAndroidIcon /> : index % 6 === 4 ? <RouterIcon /> : <TrendingUpIcon />}
+              title={index % 6 === 0 ? "UI/UX Designing" : index % 6 === 1 ? "Web Application Development" : index % 6=== 2 ? "Desktop Application Development": index % 6 === 3 ?"Mobile Application Development" : index % 6 === 4 ? "IOT Project" : "Marketing"}
               description="Description based on index."
               onClick={() => handleCardClick(index % 3)}
             />
