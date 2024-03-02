@@ -1,6 +1,8 @@
 .about-us {
+    padding: 20px;
     font-family: Arial, sans-serif;
     color: #333;
+
 }
 
 @keyframes fadeInUp {
@@ -14,30 +16,44 @@
     }
 }
 
-.header {
-    font-size: 20px;
-    text-align: center;
-    color:#1B86C8;
-    margin-bottom: 20px !important;
+.header1 {
+    margin-left: 00px;
+    font-weight: 600;
+    font-size: 50px;
+    color: #1B86C8;
     animation: fadeInUp 1s ease;
 }
 
-.description {
-    margin: 30px 20px;
-
-    padding: 15px;
+.description1 {
+    margin: 30px 0px;
+    padding: 140px 20px;
     /* border: 1px solid #1B86C8; */
     /* border-radius: 8px; */
     animation: fadeInUp 1s ease 0.5s;
     animation-fill-mode: backwards;
+    background-image: url('public/images/aboutBack.png'); /* Replace with your image URL */
+    background-size: 1440px 500px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-p{
-    margin-left: 60px;
-    margin-top: 60px;
+.p1 {
+    margin-left: 00px;
+    font-weight: 500;
+    font-size: larger;
 }
 
-.image2{
-    width: 40%;
-    height: 40%;
+@media (max-width: 768px) {
+    .description {
+        margin: 15px;
+    }
+
+    p {
+        margin-left: 15px;
+        margin-top: 15px;
+    }
+}
+
+.emptybox{
+    padding: 50px 260px;
 }
