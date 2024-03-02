@@ -1,7 +1,6 @@
 import React from 'react';
 import { Grid } from '@mui/material';
 
-// Define your CSS as JavaScript objects
 const styles = {
   aboutUs: {
     padding: '20px',
@@ -41,14 +40,11 @@ const styles = {
     },
   },
   emptyBox: {
-    padding: '50px 260px',
+    padding: '50px 20px', // Adjust padding for smaller screens
   },
 };
 
 const About = () => {
-  // Inject global styles for animations and media queries
-  // This uses React's dangerouslySetInnerHTML feature to inject CSS directly into the HTML
-  // Be cautious with dynamically generated string content to avoid XSS vulnerabilities
   return (
     <>
       <style dangerouslySetInnerHTML={{__html: `
@@ -63,17 +59,17 @@ const About = () => {
           }
         }
         @media (max-width: 768px) {
-          .description {
-            margin: 15px;
+          .description1 {
+            padding: 50px 20px; // Adjust padding for smaller screens
           }
 
-          p {
-            margin-left: 15px;
-            margin-top: 15px;
+          .p1 {
+            margin-left: 20px; // Adjust margin for smaller screens
+            margin-top: 20px; // Adjust margin for smaller screens
           }
         }
       `}} />
-      <section style={styles.description1}>
+      <section style={styles.description1} className="description1"> {/* Add className for targeting in media query */}
         <Grid item xs={12} sm={6} md={3}>
           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
             <div style={styles.emptyBox}></div>
@@ -81,7 +77,7 @@ const About = () => {
               <header style={styles.header1}>
                 <div>Who We Are</div>
               </header>
-              <p style={styles.p1}>
+              <p style={styles.p1} className="p1"> {/* Add className for targeting in media query */}
                 Welcome to DTEC, your premier destination for online courses facilitated by esteemed tutors. Established in 2024, our mission at DTEC is to provide high-quality education to students, fostering well-rounded individuals poised to become knowledgeable citizens and valuable employees.
               </p>
             </div>

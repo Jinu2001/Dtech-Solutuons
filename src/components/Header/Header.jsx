@@ -5,8 +5,6 @@ import TutorIcon from '@mui/icons-material/EmojiPeople';
 import CoursesIcon from '@mui/icons-material/VideoLibrary';
 
 const Header = () => {
-  // Use the useMediaQuery hook to check for screen width
-  // Adjust the query as needed based on your design breakpoints
   const matches = useMediaQuery('(min-width:600px)');
 
   return (
