@@ -34,7 +34,7 @@ const NavBar = () => {
   return (
     <AppBar position="fixed" sx={{ backgroundColor: 'white', boxShadow: 'none' }}>
       <Toolbar>
-        <img src='public/images/Logo.png' alt="Logo" style={{ width: '68px', height: '80px', marginLeft: '50px', marginTop: '5px' }} />
+        <img src='public/images/Logo.png' alt="Logo" style={{ width: '68px', height: '80px', marginLeft: '0px', marginTop: '5px' }} />
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           <span className='first-letter-red'>D</span><span className='plaintxt'>TEC</span>
         </Typography>
