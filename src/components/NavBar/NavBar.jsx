@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { AppBar, Toolbar, Typography, Button, IconButton, useMediaQuery, useTheme, Drawer, List, ListItem, ListItemText } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate, useLocation } from 'react-router-dom';
+import './NavBar.css'; // Import the CSS file
 
 const NavBar = () => {
   const theme = useTheme();
@@ -9,7 +10,6 @@ const NavBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [drawerOpen, setDrawerOpen] = useState(false);
-
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
@@ -34,15 +34,15 @@ const NavBar = () => {
   return (
     <AppBar position="fixed" sx={{ backgroundColor: 'white', boxShadow: 'none' }}>
       <Toolbar>
-        <img src='/images/logo.png' alt="Logo" style={{ width: '50px', height: '70px', marginRight: '10px', marginTop: '5px' }} />
-        <Typography variant="h6" sx={{ flexGrow: 1, color: 'black' }}>
-          DTEC
+        <img src='public/images/Logo.png' alt="Logo" style={{ width: '68px', height: '80px', marginLeft: '50px', marginTop: '5px' }} />
+        <Typography variant="h6" sx={{ flexGrow: 1 }}>
+          <span className='first-letter-red'>D</span><span className='plaintxt'>TEC</span>
         </Typography>
         {isMobile ? (
           <>
             <IconButton color="inherit" onClick={handleDrawerToggle} sx={{ display: 'block', color: '#1A87C9' }}>
-             <MenuIcon />
-             </IconButton>
+              <MenuIcon />
+            </IconButton>
             <Drawer
               anchor="right"
               open={drawerOpen}
@@ -58,13 +58,15 @@ const NavBar = () => {
             </Drawer>
           </>
         ) : (
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <Button onClick={() => handleNavigation('home', '/')} style={{color: 'black'}}>Home</Button>
-            <Button onClick={() => handleNavigation('about', '/')}style={{color: 'black'}}>About</Button>
-            <Button onClick={() => handleNavigation('services', '/')}style={{color: 'black'}}>Services</Button>
-            <Button onClick={() => handleNavigation('courses', '/')}style={{color: 'black'}}>Courses</Button>
-            <Button style={{backgroundColor:'#1A87C9',color: 'white', marginLeft: '10px'}} onClick={() => handleNavigation('register', '/')}>Register</Button>
+          <div style={{ display: 'flex', alignItems: 'center', marginRight: '50px' }} >
+            
+            <div className='navButtons'><Button onClick={() => handleNavigation('home', '/')} style={{ color: 'black', marginRight: '50px' }}>Home</Button></div>
+            <div className='navButtons'><Button onClick={() => handleNavigation('about', '/')} style={{ color: 'black', marginRight: '50px' }}>About</Button></div>
+            <div className='navButtons'><Button onClick={() => handleNavigation('services', '/')} style={{ color: 'black', marginRight: '50px' }}>Services</Button></div>
+            <div className='navButtons'><Button onClick={() => handleNavigation('courses', '/')} style={{ color: 'black', marginRight: '50px' }}>Courses</Button></div>
+            <div className='navButtons-reg'><Button style={{ backgroundColor: '#1A87C9', color: 'white', marginLeft: '10px', marginRight: '0px' }} onClick={() => handleNavigation('register', '/')}>Register</Button></div>
           </div>
+
         )}
       </Toolbar>
     </AppBar>
