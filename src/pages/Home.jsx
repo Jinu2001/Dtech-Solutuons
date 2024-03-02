@@ -20,7 +20,7 @@ const Home = () => {
         backgroundRepeat: 'no-repeat',
         '@media (max-width: 600px)': {
           backgroundSize: 'contain',
-          backgroundPosition: 'center',
+          backgroundPosition: 'bottom',
         }
       }}>
         {/* Add other components like Header, CourseCategories, etc. */}
