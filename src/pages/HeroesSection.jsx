@@ -8,7 +8,7 @@ const heroes = [
     name: 'Kalana Weerasinghe',
     title: 'Application Support Analyst Lead',
     description: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
-    imageUrl: 'public/images/WhatsApp Image 2024-01-15 at 19.53.15_a15c3cca.jpg',
+    imageUrl: 'public/images/Tutor.webp',
     twitterUrl: 'https://twitter.com/',
     linkedInUrl: 'https://linkedin.com/'
   },
@@ -16,7 +16,7 @@ const heroes = [
     name: 'Ruwan Thushara',
     title: 'Director, Undergraduate Analytics and Planning',
     description: 'Lead engineering teams at Figma, Pitch.',
-    imageUrl: 'public/images/WhatsApp Image 2024-01-15 at 19.53.15_a15c3cca.jpg',
+    imageUrl: 'public/images/Tutor.webp',
     twitterUrl: 'https://twitter.com/',
     linkedInUrl: 'https://linkedin.com/'
   },
@@ -24,7 +24,7 @@ const heroes = [
     name: 'Kalana Weerasinghe',
     title: 'Application Support Analyst Lead',
     description: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
-    imageUrl: 'public/images/WhatsApp Image 2024-01-15 at 19.53.15_a15c3cca.jpg',
+    imageUrl: 'public/images/Tutor.webp',
     twitterUrl: 'https://twitter.com/',
     linkedInUrl: 'https://linkedin.com/'
   },
@@ -32,7 +32,7 @@ const heroes = [
     name: 'Kalana Weerasinghe',
     title: 'Application Support Analyst Lead',
     description: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
-    imageUrl: 'public/images/WhatsApp Image 2024-01-15 at 19.53.15_a15c3cca.jpg',
+    imageUrl: 'public/images/Tutor.webp',
     twitterUrl: 'https://twitter.com/',
     linkedInUrl: 'https://linkedin.com/'
   }
