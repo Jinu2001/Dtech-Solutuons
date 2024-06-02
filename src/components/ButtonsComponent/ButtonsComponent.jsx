@@ -13,9 +13,27 @@ const ButtonsComponent = () => {
   return (
     <Stack direction="row" spacing={2} sx={stackStyle}>
       
-      <Button variant="outlined" color="primary" sx={{ textTransform: 'none', backgroundColor: '#E1F4FF', color: '#084674' }}>
-        Join my whatsapp group here
-      </Button>
+      <Button
+  variant="contained"
+  sx={{
+    textTransform: 'none',
+    background: 'linear-gradient(45deg, #ffa04f 30%, #1b86c8 90%)',
+    color: '#fff',
+    boxShadow: '0 3px 5px 2px rgba(132, 169, 255, .3)',
+    borderRadius: '12px',
+    padding: '10px 20px',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    transition: 'transform 0.3s ease-in-out',
+    '&:hover': {
+      background: 'linear-gradient(45deg, #84A9FF 30%, #E1F4FF 90%)',
+      transform: 'scale(1.05)',
+    }
+  }}
+>
+  Join my WhatsApp group here
+</Button>
+
     </Stack>
   );
 };
