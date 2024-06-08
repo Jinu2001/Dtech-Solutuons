@@ -1,74 +1,72 @@
-// NavBar.js
-
-import React, { useState } from 'react';
-import { AppBar, Toolbar, Typography, Button, IconButton, TextField, InputAdornment, useMediaQuery, useTheme } from '@mui/material';
+import React, { useState, useCallback } from 'react';
+import { AppBar, Toolbar, Typography, Button, IconButton, useMediaQuery, useTheme, Drawer, List, ListItem, ListItemText } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
-import './NavBar.css'; 
+import { useNavigate, useLocation } from 'react-router-dom';
+import './NavBar.css'; // Import the CSS file
 
 const NavBar = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const [searchTerm, setSearchTerm] = useState('');
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const handleSearch = () => {
-    // Perform additional search-related logic with searchTerm if needed
-    console.log("Searching for:", searchTerm);
+  const handleDrawerToggle = () => {
+    setDrawerOpen(!drawerOpen);
   };
 
-  return (
-    <AppBar position="static" style={{ background: 'white', color: 'black', padding: 0 }}>
-      <Toolbar style={{ justifyContent: 'space-between', width: '100%', margin: 0 }}>
-        <img className="logo" src='.\src\assets\logo.png' alt="Logo"/>
-        <Typography style={{ fontWeight: 'bold', fontSize: '25px' }} component="div" className="logo-text" sx={{ flexGrow: 1 }}>
-          DTEC
-        </Typography>
+  const scrollToSection = useCallback((sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, []);
 
-        {!isMobile && (
+  const handleNavigation = useCallback((sectionId, path = '/') => {
+    if (path === '/' && location.pathname === '/') {
+      scrollToSection(sectionId);
+    } else {
+      navigate(path, { state: { sectionId } });
+    }
+    setDrawerOpen(false); // Close the drawer when an item is clicked
+  }, [navigate, location.pathname, scrollToSection]);
+
+  return (
+    <AppBar position="fixed" sx={{ backgroundColor: 'white', boxShadow: 'none' }}>
+      <Toolbar>
+        <img src='public/images/Logo.png' alt="Logo" style={{ width: '68px', height: '80px', marginLeft: '0px', marginTop: '5px' }} />
+        <Typography variant="h6" sx={{ flexGrow: 1 }}>
+          <span className='first-letter-red'>D</span><span className='plaintxt'>TEC</span>
+        </Typography>
+        {isMobile ? (
           <>
-            <div style={{ flexGrow: 5, marginRight: '5%' }}>
-              <TextField
-                placeholder="    Want to Learn?"
-                variant="outlined"
-                size="small"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                style={{ width: '100%', marginLeft: '10px', height: '40px' }}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        onClick={handleSearch}
-                        style={{height: '25px', backgroundColor: '#FffffF', color: '#1B86C8',marginRight: '0px'}}
-                      >
-                        Explore
-                      </Button>
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </div>
-            <div>
-              <Button className="nav-button" href="/">Home</Button>
-              <Button className="nav-button" href="/about">About</Button>
-              <Button className="nav-button" href="/services">Services</Button>
-              <Button className="nav-button" href="/courses">Courses</Button>
-            </div>
-            <Button className="nav-button" href="/register" style={{ fontWeight: '700', marginLeft: '30px', color: 'black' }}>Sign in</Button>
-            <Button className="nav-button-register" href="/register" style={{ fontFamily: 'sans-serif', fontWeight: '400', border: 'solid 2px #F4EBFF', borderRadius: '8px', color: 'white', backgroundColor: '#1A87C9', height: '40px', padding: '10px' }}>Register for Free</Button>
-          </>
-        )}
-        {isMobile && (
-          <>
-            <IconButton color="inherit" style={{ marginLeft: 'auto' }}>
-              <SearchIcon />
-            </IconButton>
-            <IconButton color="inherit">
+            <IconButton color="inherit" onClick={handleDrawerToggle} sx={{ display: 'block', color: '#1A87C9' }}>
               <MenuIcon />
             </IconButton>
+            <Drawer
+              anchor="right"
+              open={drawerOpen}
+              onClose={handleDrawerToggle}
+            >
+              <List>
+                {['Home', 'About', 'Services', 'Courses', 'Register'].map((text) => (
+                  <ListItem button key={text} onClick={() => handleNavigation(text.toLowerCase())}>
+                    <ListItemText primary={text} />
+                  </ListItem>
+                ))}
+              </List>
+            </Drawer>
           </>
+        ) : (
+          <div style={{ display: 'flex', alignItems: 'center', marginRight: '50px' }} >
+            
+            <div className='navButtons'><Button onClick={() => handleNavigation('home', '/')} style={{ color: 'black', marginRight: '50px' }}>Home</Button></div>
+            <div className='navButtons'><Button onClick={() => handleNavigation('about', '/')} style={{ color: 'black', marginRight: '50px' }}>About</Button></div>
+            <div className='navButtons'><Button onClick={() => handleNavigation('services', '/')} style={{ color: 'black', marginRight: '50px' }}>Services</Button></div>
+            <div className='navButtons'><Button onClick={() => handleNavigation('courses', '/')} style={{ color: 'black', marginRight: '50px' }}>Courses</Button></div>
+            <div className='navButtons-reg'><Button style={{ backgroundColor: '#1A87C9', color: 'white', marginLeft: '10px', marginRight: '0px' }} onClick={() => handleNavigation('register', '/')}>Register</Button></div>
+          </div>
+
         )}
       </Toolbar>
     </AppBar>

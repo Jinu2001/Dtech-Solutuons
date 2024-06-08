@@ -8,26 +8,28 @@ import { CssBaseline, Box } from '@mui/material';
 
 
 const Home = () => {
-  const backgroundStyle = {
-    backgroundImage: 'url(./images/girl.png)',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    height: '100vh', // This will make the div take the full height of the viewport
-    width: '100vw' // This will make the div take the full width of the viewport
-  };
-
   return (
     <>
       <CssBaseline />
-      <NavBar />
-      <Box style={backgroundStyle}>
+      <Box sx={{ 
+        height: '100vh',
+        width: '100%',
+        backgroundImage: 'url(./images/girl.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        '@media (max-width: 600px)': {
+          backgroundSize: 'contain',
+          backgroundPosition: 'bottom',
+        }
+      }}>
         {/* Add other components like Header, CourseCategories, etc. */}
-        <Header></Header>
-        <ButtonsComponent></ButtonsComponent>
+        <Header />
+        <ButtonsComponent />
       </Box>
     </>
   );
 };
 
 export default Home;
+
